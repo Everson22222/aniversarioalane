@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site para minha namorada</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="heart-container"></div>
+  <div class="container fade-in">
+    <h1>FELIZ ANIVERSÁRIO MINHA ALANE!</h1>
+    <h2>Você é o melhor presente que eu poderia receber.</h2>
+    <p>Clique no Botão abaixo:</p>
+    
+    <button id="mostrarVideoBtn">Te amo minha coroa</button>
+
+    <div id="videoContainer" style="display: none;">
+      <!-- Vídeo incorporado do YouTube -->
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/FmsnVCQLrmk" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script>
+    const heartContainer = document.getElementById('heart-container');
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (12 + Math.random() * 24) + 'px';
+      heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+      heart.style.animationDelay = (Math.random() * 5) + 's';
+      heart.textContent = '❤️';
+
+      heartContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+
+    setInterval(createHeart, 500);
+
+    const botao = document.getElementById("mostrarVideoBtn");
+    const containerVideo = document.getElementById("videoContainer");
+
+    botao.addEventListener("click", () => {
+      containerVideo.style.display = "block";
+      botao.style.display = "none";
+    });
+  </script>
+</body>
+</html>
